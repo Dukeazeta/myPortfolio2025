@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duke Azeta - Portfolio</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@600,500,700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Canvas for Three.js -->
+    <div id="background-canvas"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">Duke<span>Azeta</span></a>
+            </div>
+
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="ti ti-sun sun-icon"></i>
+                    <i class="ti ti-moon moon-icon"></i>
+                </button>
+
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item mobile-theme-toggle">
+                        <button class="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="ti ti-sun sun-icon"></i>
+                            <i class="ti ti-moon moon-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Duke Azeta</h1>
+                <p class="hero-subtitle">
+                    I am a <span class="role-text typed-text"></span>
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="primary-btn">View Projects</a>
+                    <a href="#contact" class="secondary-btn">Contact Me</a>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrows">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate software developer with a keen eye for creating elegant solutions. My journey in tech has been driven by curiosity and a desire to build impactful applications.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h3 class="timeline-title">Flutter Developer</h3>
+                            <div class="timeline-company">KOKO Labs</div>
+                            <p class="timeline-description">Building and maintaining mobile applications using Flutter. Working on innovative solutions and implementing best practices in mobile development.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h3 class="timeline-title">Campus Lead</h3>
+                            <div class="timeline-company">Cowrywise @ FUPRE</div>
+                            <p class="timeline-description">Leading financial literacy initiatives at the Federal University of Petroleum Resources Effurun (FUPRE), organizing workshops, and building a community of financially aware students.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022 - 2024</div>
+                            <h3 class="timeline-title">Freelance Flutter Developer</h3>
+                            <div class="timeline-company">Self-Employed</div>
+                            <p class="timeline-description">Developed custom mobile applications for various clients using Flutter. Delivered high-quality solutions while managing multiple projects independently.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2021</div>
+                            <h3 class="timeline-title">Content Creator Intern</h3>
+                            <div class="timeline-company">MOBIcure</div>
+                            <p class="timeline-description">Created engaging content for digital platforms, contributed to social media strategy, and assisted in content marketing initiatives.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020 - Present</div>
+                            <h3 class="timeline-title">Freelance Frontend Developer</h3>
+                            <div class="timeline-company">Self-Employed</div>
+                            <p class="timeline-description">Building responsive and user-friendly web applications using modern frontend technologies. Collaborating with clients to deliver tailored solutions.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="AI Chat Application">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chat Application</h3>
+                        <p>A real-time chat application powered by AI, featuring natural language processing and smart responses.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">OpenAI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View source code on GitHub"><i class="ti ti-brand-github"></i></a>
+                            <a href="#" class="project-link" aria-label="View live demo"><i class="ti ti-external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>A modern e-commerce platform with real-time inventory management and secure payment processing.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View source code on GitHub"><i class="ti ti-brand-github"></i></a>
+                            <a href="#" class="project-link" aria-label="View live demo"><i class="ti ti-external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Weather Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather Dashboard</h3>
+                        <p>A beautiful weather application with detailed forecasts, interactive maps, and severe weather alerts.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Weather API</span>
+                            <span class="tag">Google Maps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View source code on GitHub"><i class="ti ti-brand-github"></i></a>
+                            <a href="#" class="project-link" aria-label="View live demo"><i class="ti ti-external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>Interested in working together? Let's talk about your project!</p>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="primary-btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="ti ti-brand-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="ti ti-brand-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="ti ti-brand-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Duke Azeta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/three-config.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/animations.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
