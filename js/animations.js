@@ -28,38 +28,7 @@ export function initHeroAnimations() {
         ease: 'power2.out'
     }, '-=0.5');
 
-    // Typing effect
-    const roles = ['Flutter Developer', 'Frontend Developer', 'UI/UX Enthusiast'];
-    let currentRole = 0;
-
-    function typeRole() {
-        gsap.to('.role-text', {
-            duration: 1,
-            text: roles[currentRole],
-            ease: 'none',
-            onComplete: () => {
-                setTimeout(eraseRole, 2000);
-            }
-        });
-    }
-
-    function eraseRole() {
-        gsap.to('.role-text', {
-            duration: 0.5,
-            text: '',
-            ease: 'none',
-            onComplete: () => {
-                currentRole = (currentRole + 1) % roles.length;
-                typeRole();
-            }
-        });
-    }
-
-    typeRole();
-}
-
-// Typing animation for roles
-export function initTypingAnimation() {
+    // Typing effect for roles
     const roles = ['Flutter Developer', 'Frontend Developer'];
     const typingText = document.querySelector('.typing-text');
     let roleIndex = 0;
@@ -101,12 +70,11 @@ export function initAboutAnimations() {
         scrollTrigger: {
             trigger: '.about-section',
             start: 'top center',
-            end: 'bottom center',
             toggleActions: 'play none none reverse'
         },
-        y: 100,
+        y: 50,
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         ease: 'power3.out'
     });
 
@@ -114,12 +82,11 @@ export function initAboutAnimations() {
         scrollTrigger: {
             trigger: '.skills-grid',
             start: 'top center',
-            end: 'bottom center',
             toggleActions: 'play none none reverse'
         },
         scale: 0.5,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         stagger: 0.1,
         ease: 'back.out(1.7)'
     });
@@ -127,19 +94,16 @@ export function initAboutAnimations() {
 
 // Timeline animations
 export function initTimelineAnimations() {
-    const timelineItems = gsap.utils.toArray('.timeline-item');
-    
-    timelineItems.forEach((item, index) => {
+    gsap.utils.toArray('.timeline-item').forEach((item, index) => {
         const direction = index % 2 === 0 ? -30 : 30;
         
         gsap.from(item.querySelector('.timeline-content'), {
             x: direction,
             opacity: 0,
-            duration: 1,
+            duration: 0.8,
             scrollTrigger: {
                 trigger: item,
                 start: 'top 80%',
-                end: 'top 60%',
                 toggleActions: 'play none none reverse'
             }
         });
@@ -147,12 +111,10 @@ export function initTimelineAnimations() {
         gsap.from(item.querySelector('.timeline-dot'), {
             scale: 0,
             opacity: 0,
-            duration: 0.6,
-            delay: 0.4,
+            duration: 0.4,
             scrollTrigger: {
                 trigger: item,
                 start: 'top 80%',
-                end: 'top 60%',
                 toggleActions: 'play none none reverse'
             }
         });
@@ -161,18 +123,16 @@ export function initTimelineAnimations() {
 
 // Projects section animations
 export function initProjectAnimations() {
-    const projectCards = gsap.utils.toArray('.project-card');
-    projectCards.forEach((card, index) => {
+    gsap.utils.toArray('.project-card').forEach((card, index) => {
         gsap.from(card, {
             opacity: 0,
-            y: 50,
-            duration: 0.8,
+            y: 30,
+            duration: 0.6,
             delay: index * 0.2,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                end: 'top 60%',
                 toggleActions: 'play none none reverse'
             }
         });
@@ -185,12 +145,11 @@ export function initContactAnimations() {
         scrollTrigger: {
             trigger: '.contact-section',
             start: 'top center',
-            end: 'bottom center',
             toggleActions: 'play none none reverse'
         },
-        y: 50,
+        y: 30,
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         ease: 'power3.out'
     });
 
@@ -198,12 +157,11 @@ export function initContactAnimations() {
         scrollTrigger: {
             trigger: '.social-links',
             start: 'top center',
-            end: 'bottom center',
             toggleActions: 'play none none reverse'
         },
         scale: 0,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         stagger: 0.1,
         ease: 'back.out(1.7)'
     });
