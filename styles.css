@@ -425,23 +425,11 @@ html.dark .moon-icon {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.hero-subtitle p {
-    margin: 0;
 }
 
 .role-text {
     color: var(--gradient-start);
     font-weight: 600;
-    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .hero-cta {
@@ -967,4 +955,24 @@ html.dark .moon-icon {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Typing Animation */
+.typing-text {
+    display: inline-block;
+    position: relative;
+    color: var(--gradient-start);
+    font-weight: 600;
+}
+
+.typing-text::after {
+    content: '|';
+    position: absolute;
+    right: -4px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

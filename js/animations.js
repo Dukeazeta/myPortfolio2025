@@ -58,6 +58,43 @@ export function initHeroAnimations() {
     typeRole();
 }
 
+// Typing animation for roles
+export function initTypingAnimation() {
+    const roles = ['Flutter Developer', 'Frontend Developer'];
+    const typingText = document.querySelector('.typing-text');
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    let pauseDuration = 1000;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            typingText.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typingText.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            typingSpeed = pauseDuration;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        setTimeout(type, typingSpeed);
+    }
+
+    type();
+}
+
 // About section animations
 export function initAboutAnimations() {
     gsap.from('.about-content', {
