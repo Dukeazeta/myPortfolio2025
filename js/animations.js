@@ -28,46 +28,34 @@ export function initHeroAnimations() {
         ease: 'power2.out'
     }, '-=0.5');
 
-    // Typing animation
-    function initTypingAnimation() {
-        const typedTextSpan = document.querySelector(".typed-text");
-        const texts = ["Flutter Developer", "Frontend Developer"];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingDelay = 100;
-        let erasingDelay = 50;
-        let newTextDelay = 2000;
+    // Typing effect
+    const roles = ['Flutter Developer', 'Frontend Developer', 'UI/UX Enthusiast'];
+    let currentRole = 0;
 
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typingDelay = erasingDelay;
-            } else {
-                typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typingDelay = 100;
+    function typeRole() {
+        gsap.to('.role-text', {
+            duration: 1,
+            text: roles[currentRole],
+            ease: 'none',
+            onComplete: () => {
+                setTimeout(eraseRole, 2000);
             }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                typingDelay = newTextDelay;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typingDelay = 500;
-            }
-
-            setTimeout(type, typingDelay);
-        }
-
-        type();
+        });
     }
 
-    initTypingAnimation();
+    function eraseRole() {
+        gsap.to('.role-text', {
+            duration: 0.5,
+            text: '',
+            ease: 'none',
+            onComplete: () => {
+                currentRole = (currentRole + 1) % roles.length;
+                typeRole();
+            }
+        });
+    }
+
+    typeRole();
 }
 
 // About section animations

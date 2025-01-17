@@ -15,32 +15,53 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- Logo/Name -->
             <div class="logo">
-                <a href="#home">Duke<span>Azeta</span></a>
+                <a href="#home">Duke Azeta</a>
             </div>
 
             <div class="nav-right">
+                <!-- Dark Mode Toggle -->
                 <button class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="ti ti-sun sun-icon"></i>
-                    <i class="ti ti-moon moon-icon"></i>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
                 </button>
 
-                <button class="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <!-- Hamburger Menu for Mobile -->
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
 
+                <!-- Navigation Links -->
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                    <li class="nav-item mobile-theme-toggle">
-                        <button class="theme-toggle" aria-label="Toggle dark mode">
-                            <i class="ti ti-sun sun-icon"></i>
-                            <i class="ti ti-moon moon-icon"></i>
-                        </button>
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -50,24 +71,23 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Duke Azeta</h1>
-                <p class="hero-subtitle">
-                    I am a <span class="role-text typed-text"></span>
-                </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="primary-btn">View Projects</a>
-                    <a href="#contact" class="secondary-btn">Contact Me</a>
+            <h1 class="hero-title">Duke Azeta</h1>
+            <p class="hero-subtitle">
+                <span class="role-text">Flutter Developer</span> &
+                <span class="role-text">Frontend Engineer</span>
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="primary-btn">View Projects</a>
+                <a href="#contact" class="secondary-btn">Get in Touch</a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
                 </div>
-                <div class="scroll-indicator">
-                    <div class="mouse">
-                        <div class="wheel"></div>
-                    </div>
-                    <div class="arrows">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -249,7 +269,6 @@
 
     <!-- Scripts -->
     <script type="module" src="js/three-config.js"></script>
-    <script src="js/main.js"></script>
     <script type="module" src="js/animations.js"></script>
     <script type="module" src="script.js"></script>
 </body>
