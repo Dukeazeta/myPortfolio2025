@@ -63,3 +63,22 @@ themeToggle?.addEventListener('click', () => {
     html.className = newTheme;
     localStorage.setItem('theme', newTheme);
 });
+
+// Contact form handling
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    // Send email using mailto
+    const subject = `Portfolio Contact from ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    window.location.href = `mailto:azetaduke@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Clear form
+    e.target.reset();
+});
