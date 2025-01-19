@@ -678,32 +678,33 @@ html.dark .moon-icon {
 /* Footer Styles */
 .footer {
     padding: 2rem 0;
-    background-color: var(--nav-bg);
+    margin-top: 4rem;
+    background: var(--nav-bg);
     border-top: 1px solid var(--nav-border);
+    backdrop-filter: blur(10px);
 }
 
 .footer .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .social-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.social-links a {
+.social-link {
     color: var(--text-color);
     font-size: 1.5rem;
-    transition: var(--transition-fast);
-    opacity: 0.8;
+    transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
-.social-links a:hover {
-    opacity: 1;
-    transform: translateY(-2px);
+.social-link:hover {
+    color: var(--gradient-start);
+    transform: translateY(-3px);
 }
 
 .copyright {
