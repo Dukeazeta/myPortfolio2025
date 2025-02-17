@@ -23,6 +23,7 @@ Visit the live website: [dukeazeta.github.io/myPortfolio2025](https://dukeazeta.
   - CSS3 (Custom properties, Flexbox, Grid)
   - JavaScript (ES6+)
   - Three.js for 3D animations
+  - Bootstrap
 
 - **Features**:
   - Responsive Design
