@@ -1,9 +1,32 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import './ProjectsPage.css';
 
 const ProjectsPage = () => {
+  const [isExiting, setIsExiting] = useState(false);
+  const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    // Immediate scroll to top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // Also ensure document body is at top
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
+
+  // Handle back navigation with animation
+  const handleBackClick = (e) => {
+    e.preventDefault();
+    setIsExiting(true);
+
+    // Wait for exit animation to complete before navigating
+    setTimeout(() => {
+      navigate('/');
+    }, 800); // Match the exit animation duration
+  };
   const projectsData = [
     {
       id: 1,
@@ -47,21 +70,79 @@ const ProjectsPage = () => {
   ];
 
   return (
-    <div className="projects-page">
-      <div className="container">
-        {/* Header Section */}
-        <motion.div
-          className="projects-page-header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Link to="/" className="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Home
-          </Link>
+    <motion.div
+      className="projects-page"
+      initial={{ opacity: 0 }}
+      animate={isExiting ? { opacity: 0 } : { opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      {/* Page Loading Overlay */}
+      <motion.div
+        className="page-loading-overlay"
+        initial={{ scaleY: 1 }}
+        animate={isExiting ? { scaleY: 1 } : { scaleY: 0 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.76, 0, 0.24, 1],
+          delay: isExiting ? 0 : 0
+        }}
+      />
+
+      {/* Exit Animation Overlay */}
+      <motion.div
+        className="page-exit-overlay"
+        initial={{ scaleY: 0 }}
+        animate={isExiting ? { scaleY: 1 } : { scaleY: 0 }}
+        transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+      />
+
+      {/* Animated Background Elements */}
+      <motion.div
+        className="page-bg-elements"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <div className="bg-circle bg-circle-1"></div>
+        <div className="bg-circle bg-circle-2"></div>
+        <div className="bg-circle bg-circle-3"></div>
+      </motion.div>
+
+      {/* Content Reveal Animation */}
+      <motion.div
+        className="page-content-wrapper"
+        initial={{ y: 50, opacity: 0 }}
+        animate={isExiting ?
+          { y: -30, opacity: 0 } :
+          { y: 0, opacity: 1 }
+        }
+        transition={{
+          duration: isExiting ? 0.4 : 0.8,
+          delay: isExiting ? 0 : 0.3,
+          ease: [0.76, 0, 0.24, 1]
+        }}
+      >
+        <div className="container">
+          {/* Header Section */}
+          <motion.div
+            className="projects-page-header"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <Link to="/" className="back-link" onClick={handleBackClick}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Home
+            </Link>
+          </motion.div>
           <h1 className="projects-page-title">ALL PROJECTS</h1>
           <p className="projects-page-subtitle">
             A comprehensive showcase of my work spanning web development, mobile applications, 
@@ -72,18 +153,36 @@ const ProjectsPage = () => {
         {/* Projects Grid */}
         <motion.div
           className="projects-page-grid"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isExiting ?
+            { opacity: 0, y: 20 } :
+            { opacity: 1, y: 0 }
+          }
+          transition={{
+            duration: isExiting ? 0.3 : 0.8,
+            delay: isExiting ? 0.1 : 0.7,
+            ease: [0.76, 0, 0.24, 1]
+          }}
         >
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
               className="project-card-large"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, y: 60, scale: 0.9 }}
+              animate={isExiting ?
+                { opacity: 0, y: 30, scale: 0.95 } :
+                { opacity: 1, y: 0, scale: 1 }
+              }
+              transition={{
+                duration: isExiting ? 0.2 : 0.6,
+                delay: isExiting ? (index * 0.05) : (0.9 + (index * 0.15)),
+                ease: [0.76, 0, 0.24, 1]
+              }}
+              whileHover={!isExiting ? {
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" }
+              } : {}}
             >
               <div className="project-image-large">
                 <img
@@ -148,8 +247,9 @@ const ProjectsPage = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
-    </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
