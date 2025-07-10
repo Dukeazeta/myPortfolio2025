@@ -1,6 +1,6 @@
 # Duke Azeta - Portfolio Website
 
-A minimalist and modern portfolio website showcasing my work as a software developer. The site features a clean design, smooth animations, and an interactive 3D background created with Three.js.
+A modern, minimalist portfolio website built with React, showcasing my work as a software developer. Features clean design, smooth animations, interactive 3D background, and dedicated project showcase pages.
 
 ## 🌟 Live Demo
 
@@ -8,61 +8,93 @@ Visit the live website: [dukeazeta.github.io/myPortfolio2025](https://dukeazeta.
 
 ## ⚡ Features
 
-- **Minimalist Design**: Clean and modern UI focused on content and user experience
-- **Interactive Background**: Dynamic 3D background animation using Three.js
-- **Dark/Light Mode**: Automatic theme switching based on user preference
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Smooth Animations**: Custom animations for enhanced user experience
-- **Mobile Apps Showcase**: Direct download links for Android applications
-- **Contact Form**: Easy-to-use contact form for potential collaborations
+- **React-Based Architecture**: Modern component-based structure with React 19
+- **Dedicated Projects Page**: Comprehensive project showcase with routing
+- **Interactive 3D Background**: Dynamic particle system using Three.js and React Three Fiber
+- **Dark/Light Mode**: Seamless theme switching with context management
+- **Smooth Page Transitions**: Beautiful animations using Framer Motion
+- **Mobile-First Design**: Fully responsive with custom mobile navigation
+- **Project Showcase**: Featured projects with live demos and downloads
+- **Contact Integration**: Easy-to-use contact form for collaborations
 
 ## 🛠️ Tech Stack
 
-- **Frontend**:
-  - HTML5
-  - CSS3 (Custom properties, Flexbox, Grid)
-  - JavaScript (ES6+)
-  - Three.js for 3D animations
-  - Bootstrap
+- **Frontend**: React 19, JavaScript ES6+
+- **Styling**: CSS3 with CSS Variables for theming
+- **Animations**: Framer Motion for smooth transitions
+- **3D Graphics**: Three.js with React Three Fiber & Drei
+- **Routing**: React Router DOM for navigation
+- **Build Tool**: Vite for fast development and building
+- **Icons**: Tabler Icons for consistent iconography
 
-- **Features**:
-  - Responsive Design
-  - CSS Grid and Flexbox
-  - Custom CSS Variables
-  - CSS Animations
-  - Dynamic Theme Switching
-  - Mobile-First Approach
+## 🏗️ Project Structure
 
-- **Performance Optimizations**:
-  - Lazy Loading Images
-  - Optimized Asset Delivery
-  - Smooth Page Transitions
-  - Efficient 3D Rendering
+```
+react-portfolio/
+├── src/
+│   ├── components/          # React components
+│   │   ├── Header/         # Navigation with mobile menu
+│   │   ├── Hero/           # Hero section with skills marquee
+│   │   ├── About/          # About section with timeline
+│   │   ├── Projects/       # Homepage projects showcase
+│   │   ├── Skills/         # Skills grid display
+│   │   ├── Contact/        # Contact form
+│   │   ├── Footer/         # Footer with social links
+│   │   └── ThreeBackground/ # 3D particle background
+│   ├── pages/              # Page components
+│   │   └── ProjectsPage.jsx # Dedicated projects showcase
+│   ├── contexts/           # React contexts
+│   │   └── ThemeContext.jsx # Theme management
+│   ├── App.jsx            # Main app with routing
+│   └── main.jsx           # App entry point
+└── public/                # Static assets
+    ├── assets/            # Images and media
+    └── apps/              # Downloadable applications
+```
 
 ## 📱 Featured Projects
 
-The portfolio showcases several mobile applications:
+The portfolio showcases several projects across web and mobile development:
 
-1. **TicTacKoko**: A modern take on the classic Tic-Tac-Toe game
-2. **WeatherKoko**: A minimalist weather application
-3. **TimerKoko**: A clean and intuitive timer application
-
-All applications are built with Flutter and are available for direct download through the portfolio.
+1. **FUPRE Sport Media**: A comprehensive sports media platform built with React and Next.js
+2. **TicTacKoko**: A modern take on the classic Tic-Tac-Toe game built with Flutter
+3. **WeatherKoko**: A minimalist weather application with BLoC pattern
+4. **TimerKoko**: A clean and intuitive timer application
 
 ## 🚀 Getting Started
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Dukeazeta/myPortfolio2025.git
+   cd myPortfolio2025/react-portfolio
    ```
 
-2. Open `index.html` in your browser to view the site locally
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3. To make changes:
-   - Modify HTML in `index.html`
-   - Update styles in `styles.css`
-   - Edit animations in `js/animations.js`
-   - Modify 3D background in `js/three-config.js`
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 🏗️ Build for Production
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## 🎨 Customization
+
+- **Theme Colors**: Edit CSS variables in `src/App.css`
+- **Components**: Modify React components in `src/components/`
+- **Pages**: Add new pages in `src/pages/`
+- **3D Background**: Customize particle system in `src/components/ThreeBackground/`
 
 ## 📄 License
 
