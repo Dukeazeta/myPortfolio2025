@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -9,6 +9,7 @@ import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ThreeBackground from './components/ThreeBackground/ThreeBackground';
+import ProjectsPage from './pages/ProjectsPage';
 import './App.css';
 
 function App() {
@@ -18,13 +19,18 @@ function App() {
         <div className="App">
           <ThreeBackground />
           <Header />
-          <main>
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Contact />
-          </main>
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <About />
+                <Projects />
+                <Skills />
+                <Contact />
+              </main>
+            } />
+            <Route path="/projects" element={<ProjectsPage />} />
+          </Routes>
           <Footer />
         </div>
       </Router>

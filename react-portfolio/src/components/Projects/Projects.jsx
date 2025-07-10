@@ -1,11 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
 const Projects = () => {
   const projectsData = [
     {
       id: 1,
+      title: 'FUPRE Sport Media',
+      description: 'A comprehensive sports media platform for the Federal University of Petroleum Resources Effurun, featuring news, events, and sports coverage.',
+      image: '/assets/FSM.png',
+      tags: ['React', 'Next.js', 'Tailwind CSS'],
+      liveUrl: 'https://fupre-sports-media-web.vercel.app/sports'
+    },
+    {
+      id: 2,
       title: 'TicTacKoko',
       description: 'A modern take on the classic Tic-tac-toe game built with Flutter, featuring a clean UI and state management with Provider.',
       image: '/assets/Tictackoko.jpg',
@@ -15,7 +24,7 @@ const Projects = () => {
       downloadName: 'TicTacKoko.apk'
     },
     {
-      id: 2,
+      id: 3,
       title: 'WeatherKoko',
       description: 'A weather application built with Flutter, implementing BLoC pattern for state management and Provider for dependency injection.',
       image: '/assets/weatherkokodemo.jpg',
@@ -23,16 +32,6 @@ const Projects = () => {
       githubUrl: 'https://github.com/Dukeazeta/weatherkoko',
       downloadUrl: '/apps/Weather%20Koko.apk',
       downloadName: 'WeatherKoko.apk'
-    },
-    {
-      id: 3,
-      title: 'TimerKoko',
-      description: 'A minimalist timer application built with Flutter, featuring a clean and intuitive interface for time management.',
-      image: '/assets/Timerkokodemo.jpg',
-      tags: ['Flutter'],
-      githubUrl: 'https://github.com/Dukeazeta/timerkoko',
-      downloadUrl: '/apps/Timer%20KOKO.apk',
-      downloadName: 'TimerKoko.apk'
     }
   ];
 
@@ -81,32 +80,65 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-links">
-                  <motion.a
-                    href={project.githubUrl}
-                    className="project-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} source code on GitHub`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <i className="ti ti-brand-github"></i>
-                  </motion.a>
-                  <motion.a
-                    href={project.downloadUrl}
-                    className="project-link"
-                    download={project.downloadName}
-                    aria-label={`Download ${project.title} APK`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <i className="ti ti-download"></i>
-                  </motion.a>
+                  {project.liveUrl && (
+                    <motion.a
+                      href={project.liveUrl}
+                      className="project-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} live demo`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <i className="ti ti-external-link"></i>
+                    </motion.a>
+                  )}
+                  {project.githubUrl && (
+                    <motion.a
+                      href={project.githubUrl}
+                      className="project-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <i className="ti ti-brand-github"></i>
+                    </motion.a>
+                  )}
+                  {project.downloadUrl && (
+                    <motion.a
+                      href={project.downloadUrl}
+                      className="project-link"
+                      download={project.downloadName}
+                      aria-label={`Download ${project.title} APK`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <i className="ti ti-download"></i>
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <motion.div
+          className="projects-cta"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <Link to="/projects" className="view-all-btn">
+            <span>View All Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );

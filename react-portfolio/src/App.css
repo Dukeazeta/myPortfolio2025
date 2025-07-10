@@ -76,6 +76,27 @@ html.light {
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve mobile performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button, a, input, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -150,4 +171,72 @@ body {
   color: var(--bg-color);
   border-color: var(--accent-color);
   transform: translateY(-1px);
+}
+
+/* Mobile Global Styles */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 0;
+    --container-padding: 0 1.5rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .primary-btn {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-base);
+    border-radius: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .secondary-btn {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-base);
+    border-radius: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 0 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: 1.5rem;
+  }
+
+  .primary-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: var(--font-size-sm);
+    min-height: 44px;
+  }
+
+  .secondary-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: var(--font-size-sm);
+    min-height: 44px;
+  }
 }

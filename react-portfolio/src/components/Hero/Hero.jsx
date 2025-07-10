@@ -68,7 +68,7 @@ const Hero = () => {
             <span>•</span>
             <span>JAVASCRIPT</span>
             <span>•</span>
-            <span>SCSS</span>
+            <span>TYPESCRIPT</span>
             <span>•</span>
             <span>FRAMER MOTION</span>
             <span>•</span>
@@ -80,9 +80,9 @@ const Hero = () => {
             <span>•</span>
             <span>CSS</span>
             <span>•</span>
-            <span>GATSBY.JS</span>
+            <span>THREE.JS</span>
             <span>•</span>
-            <span>NEXTJS</span>
+            <span>GIT</span>
           </div>
         </div>
       </div>

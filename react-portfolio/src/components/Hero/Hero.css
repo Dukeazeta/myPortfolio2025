@@ -46,7 +46,9 @@
 .hero-role {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
 }
 
 .role-title {
@@ -62,13 +64,16 @@
 .role-typing {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
 .role-text {
   color: var(--text-secondary);
-  font-size: var(--font-size-lg);
-  font-weight: 400;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 
@@ -141,8 +146,8 @@
 
 .profile-image-container {
   width: 300px;
-  height: 400px;
-  border-radius: var(--border-radius-large);
+  height: 300px;
+  border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--border-color);
   background: var(--card-bg);
@@ -192,30 +197,114 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0 1.5rem;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
     text-align: center;
+    padding: 1rem 0;
+  }
+
+  .hero-text {
+    gap: 1.5rem;
   }
 
   .hero-name {
     font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 0.85;
   }
 
   .role-title {
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(1.2rem, 6vw, 2rem);
+  }
+
+  .role-text {
+    font-size: var(--font-size-sm);
+    margin-top: 0.25rem;
+  }
+
+  .hero-description {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .hero-image {
     order: -1;
+    display: flex;
+    justify-content: center;
   }
 
   .profile-image-container {
-    width: 250px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .contact-btn {
+    padding: 0.875rem 2rem;
+    font-size: var(--font-size-sm);
+    align-self: center;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .hero-skills {
+    padding: 0.5rem 0;
+    margin-top: 1rem;
   }
 
   .skills-marquee {
     gap: 1rem;
+  }
+
+  .skills-marquee span {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0 1rem;
+  }
+
+  .hero-content {
+    gap: 2rem;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .role-title {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .role-text {
+    font-size: var(--font-size-xs);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+  }
+
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .contact-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-xs);
+  }
+
+  .skills-marquee span {
+    font-size: 10px;
   }
 }
