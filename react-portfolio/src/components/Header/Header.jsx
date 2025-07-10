@@ -121,6 +121,20 @@ const Header = () => {
                 CONTACT
               </a>
             </li>
+            <li className="nav-item">
+              <a
+                href="https://www.self.so/duke-azeta"
+                className="nav-link resume-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+              >
+                RESUME
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -239,6 +253,19 @@ const Header = () => {
                   onClick={(e) => handleNavClick(e, 'contact')}
                 >
                   CONTACT
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="https://www.self.so/duke-azeta"
+                  className="nav-link resume-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  RESUME
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
                 </a>
               </li>
             </ul>

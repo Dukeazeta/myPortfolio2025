@@ -158,6 +158,23 @@ html.light .nav-link:hover {
   color: rgba(0, 0, 0, 1) !important;
 }
 
+/* Resume Link Styles */
+.resume-link {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume-link svg {
+  transition: transform var(--transition-fast);
+  opacity: 0.7;
+}
+
+.resume-link:hover svg {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
 /* Modern Hamburger Menu */
 .hamburger {
   display: none;
@@ -368,6 +385,18 @@ html.light .bar {
 
   html.light .mobile-menu-content .nav-link:hover {
     color: rgba(0, 0, 0, 1) !important;
+  }
+
+  /* Mobile Resume Link */
+  .mobile-menu-content .resume-link {
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-menu-content .resume-link svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* Mobile Menu Footer */

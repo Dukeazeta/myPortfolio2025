@@ -42,6 +42,23 @@
   color: var(--text-color);
 }
 
+/* Footer Resume Link */
+.footer-resume-link {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-resume-link svg {
+  transition: transform var(--transition-fast);
+  opacity: 0.7;
+}
+
+.footer-resume-link:hover svg {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
 .footer-contact h3 {
   color: var(--text-color);
   font-size: var(--font-size-base);
