@@ -1,0 +1,357 @@
+/* Animated Text Styles */
+.animated-text {
+  display: inline-block;
+  overflow: hidden;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.animated-text-item {
+  display: inline-block;
+  transform-origin: bottom;
+  letter-spacing: inherit;
+}
+
+.animated-text-item.word {
+  margin-right: 0; /* Remove margin, use word-spacing instead */
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+.animated-text-item.char {
+  transform-origin: bottom center;
+  letter-spacing: inherit;
+}
+
+.animated-text-item.line {
+  display: block;
+  transform-origin: left center;
+  letter-spacing: inherit;
+}
+
+/* Typewriter Text */
+.typewriter-text {
+  display: inline-block;
+  letter-spacing: inherit;
+}
+
+.typewriter-text span {
+  display: inline-block;
+  letter-spacing: inherit;
+}
+
+/* Specific letter spacing for different contexts */
+.hero-name .animated-text,
+.hero-name .animated-text-item {
+  letter-spacing: -0.02em;
+}
+
+.role-title .animated-text,
+.role-title .animated-text-item {
+  letter-spacing: -0.01em;
+}
+
+.role-text.typewriter-text,
+.role-text.typewriter-text span {
+  letter-spacing: 0.1em;
+}
+
+/* Section titles */
+.section-title .animated-text,
+.section-title .animated-text-item {
+  letter-spacing: -0.01em;
+}
+
+/* About section specific */
+.about-intro h3 .animated-text,
+.about-intro h3 .animated-text-item {
+  letter-spacing: -0.01em;
+}
+
+.about-intro .animated-text,
+.about-intro .animated-text-item {
+  letter-spacing: inherit;
+}
+
+/* Contact button */
+.contact-btn .animated-text,
+.contact-btn .animated-text-item {
+  letter-spacing: 0.05em;
+}
+
+/* Gradient Text Animation */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--text-color) 0%,
+    var(--accent-color) 25%,
+    var(--text-color) 50%,
+    var(--accent-color) 75%,
+    var(--text-color) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Reveal Text */
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Text Reveal Effect with Overlay */
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  transform: translateX(-100%);
+  animation: textReveal 1.5s ease-out forwards;
+  z-index: 1;
+}
+
+@keyframes textReveal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-text::before {
+  color: #ff0000;
+  animation: glitch1 0.3s infinite;
+}
+
+.glitch-text::after {
+  color: #00ffff;
+  animation: glitch2 0.3s infinite;
+}
+
+@keyframes glitch1 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+}
+
+@keyframes glitch2 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(2px, 2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+}
+
+/* Morphing Text */
+.morphing-text {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.morphing-text .char {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.morphing-text:hover .char {
+  transform: rotateY(180deg);
+}
+
+/* Floating Text */
+.floating-text .char {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-text .char:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.floating-text .char:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Neon Text Effect */
+.neon-text {
+  color: var(--accent-color);
+  text-shadow: 
+    0 0 5px var(--accent-color),
+    0 0 10px var(--accent-color),
+    0 0 15px var(--accent-color),
+    0 0 20px var(--accent-color);
+  animation: neonFlicker 2s infinite alternate;
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px var(--accent-color),
+      0 0 10px var(--accent-color),
+      0 0 15px var(--accent-color),
+      0 0 20px var(--accent-color);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px var(--accent-color),
+      0 0 5px var(--accent-color),
+      0 0 8px var(--accent-color),
+      0 0 12px var(--accent-color);
+  }
+}
+
+/* Blur to Focus Effect */
+.blur-focus {
+  filter: blur(3px);
+  transition: filter 0.8s ease;
+}
+
+.blur-focus.in-view {
+  filter: blur(0px);
+}
+
+/* Split Text Reveal */
+.split-reveal .char {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.split-reveal.animate .char {
+  transform: translateY(0%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animated-text-item.char {
+    transform-origin: bottom center;
+  }
+  
+  .floating-text .char {
+    animation-duration: 2s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .neon-text {
+    text-shadow: 
+      0 0 3px var(--accent-color),
+      0 0 6px var(--accent-color),
+      0 0 9px var(--accent-color);
+  }
+}
+
+/* Accessibility - Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animated-text-item,
+  .typewriter-text span,
+  .floating-text .char,
+  .morphing-text .char,
+  .split-reveal .char {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .text-reveal::before {
+    animation: none !important;
+  }
+  
+  .gradient-text {
+    animation: none !important;
+    background: var(--text-color);
+    -webkit-text-fill-color: var(--text-color);
+  }
+  
+  .neon-text {
+    animation: none !important;
+    text-shadow: none !important;
+  }
+  
+  .blur-focus {
+    filter: none !important;
+  }
+}

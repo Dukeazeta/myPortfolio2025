@@ -185,6 +185,8 @@ const Header = () => {
               className="theme-toggle"
               onClick={toggleTheme}
               aria-label="Toggle theme"
+              data-magnetic
+              data-cursor-text="Switch Theme"
             >
               <svg
                 className="sun-icon"
@@ -233,6 +235,8 @@ const Header = () => {
                   href="#projects"
                   className="nav-link"
                   onClick={(e) => handleNavClick(e, 'projects')}
+                  data-magnetic
+                  data-cursor-text="View Work"
                 >
                   PROJECTS
                 </a>
@@ -242,6 +246,8 @@ const Header = () => {
                   href="#about"
                   className="nav-link"
                   onClick={(e) => handleNavClick(e, 'about')}
+                  data-magnetic
+                  data-cursor-text="Learn More"
                 >
                   ABOUT
                 </a>
@@ -251,6 +257,8 @@ const Header = () => {
                   href="#contact"
                   className="nav-link"
                   onClick={(e) => handleNavClick(e, 'contact')}
+                  data-magnetic
+                  data-cursor-text="Get in Touch"
                 >
                   CONTACT
                 </a>
@@ -261,6 +269,9 @@ const Header = () => {
                   className="nav-link resume-link"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-magnetic
+                  data-cursor-text="View Resume"
+                  data-cursor-variant="external"
                 >
                   RESUME
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

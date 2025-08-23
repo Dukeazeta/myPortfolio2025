@@ -1,0 +1,129 @@
+/* Magnetic Cursor Styles */
+.magnetic-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast);
+}
+
+.magnetic-cursor.magnetic {
+  border-color: var(--accent-color);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.magnetic-cursor.clicking {
+  transform: scale(0.8);
+}
+
+/* Cursor Variants */
+.magnetic-cursor.view {
+  border-color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.magnetic-cursor.download {
+  border-color: #ff6b35;
+  background: rgba(255, 107, 53, 0.15);
+}
+
+.magnetic-cursor.external {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.magnetic-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: background-color var(--transition-fast);
+}
+
+.cursor-text {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--accent-color);
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+/* Hide default cursor on magnetic elements */
+[data-magnetic] {
+  cursor: none;
+}
+
+/* Dark mode adjustments */
+html.dark .magnetic-cursor {
+  border-color: var(--accent-color);
+}
+
+html.dark .magnetic-cursor.magnetic {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+html.dark .magnetic-cursor-dot {
+  background: var(--accent-color);
+}
+
+/* Light mode adjustments */
+html.light .magnetic-cursor {
+  border-color: var(--accent-color);
+  mix-blend-mode: multiply;
+}
+
+html.light .magnetic-cursor.magnetic {
+  background: rgba(255, 107, 53, 0.1);
+}
+
+html.light .magnetic-cursor-dot {
+  background: var(--accent-color);
+}
+
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+  .magnetic-cursor,
+  .magnetic-cursor-dot {
+    display: none;
+  }
+  
+  [data-magnetic] {
+    cursor: pointer;
+  }
+}
+
+/* Hide cursor when hovering over text inputs */
+input:hover ~ .magnetic-cursor,
+textarea:hover ~ .magnetic-cursor,
+input:focus ~ .magnetic-cursor,
+textarea:focus ~ .magnetic-cursor {
+  opacity: 0;
+}
+
+/* Smooth transitions for cursor states */
+.magnetic-cursor {
+  transition: 
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.magnetic-cursor-dot {
+  transition: 
+    background-color var(--transition-fast),
+    transform 0.1s ease-out;
+}

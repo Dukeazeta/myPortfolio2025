@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { AnimatedHeading, RevealText } from '../AnimatedText/AnimatedText';
 import './Projects.css';
 
 const Projects = () => {
@@ -45,15 +46,11 @@ const Projects = () => {
       viewport={{ once: true }}
     >
       <div className="container">
-        <motion.h2
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          PROJECTS
-        </motion.h2>
+        <h2 className="section-title">
+          <RevealText delay={0.2}>
+            <AnimatedHeading>PROJECTS</AnimatedHeading>
+          </RevealText>
+        </h2>
         <div className="projects-grid">
           {projectsData.map((project, index) => (
             <motion.div
@@ -64,6 +61,8 @@ const Projects = () => {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -2 }}
+              data-magnetic
+              data-cursor-text="View Project"
             >
               <div className="project-image">
                 <img
@@ -89,6 +88,9 @@ const Projects = () => {
                       aria-label={`View ${project.title} live demo`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
+                      data-magnetic
+                      data-cursor-text="View Live"
+                      data-cursor-variant="external"
                     >
                       <i className="ti ti-external-link"></i>
                     </motion.a>
@@ -114,6 +116,9 @@ const Projects = () => {
                       aria-label={`Download ${project.title} APK`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
+                      data-magnetic
+                      data-cursor-text="Download"
+                      data-cursor-variant="download"
                     >
                       <i className="ti ti-download"></i>
                     </motion.a>
@@ -132,7 +137,12 @@ const Projects = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Link to="/projects" className="view-all-btn">
+          <Link
+            to="/projects"
+            className="view-all-btn"
+            data-magnetic
+            data-cursor-text="See All Work"
+          >
             <span>View All Projects</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>

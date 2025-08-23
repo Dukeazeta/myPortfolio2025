@@ -9,6 +9,7 @@ import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ThreeBackground from './components/ThreeBackground/ThreeBackground';
+import MagneticCursor from './components/MagneticCursor/MagneticCursor';
 import ProjectsPage from './pages/ProjectsPage';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="App">
+          <MagneticCursor />
           <ThreeBackground />
           <Header />
           <Routes>

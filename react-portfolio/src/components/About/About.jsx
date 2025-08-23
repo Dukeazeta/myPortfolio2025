@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { AnimatedHeading, AnimatedParagraph } from '../AnimatedText/AnimatedText';
 import './About.css';
 
 const About = () => {
@@ -65,15 +66,9 @@ const About = () => {
       viewport={{ once: true }}
     >
       <div className="container">
-        <motion.h2
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          ABOUT
-        </motion.h2>
+        <h2 className="section-title">
+          <AnimatedHeading delay={0.2}>ABOUT</AnimatedHeading>
+        </h2>
         <div className="about-content">
           <motion.div
             className="about-text"
@@ -83,15 +78,17 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="about-intro">
-              <h3>I'm a passionate software developer with a keen eye for creating elegant solutions.</h3>
-              <p>
+              <h3>
+                <AnimatedHeading delay={0.4}>I'm a passionate software developer with a keen eye for creating elegant solutions.</AnimatedHeading>
+              </h3>
+              <AnimatedParagraph delay={0.6}>
                 My journey in tech has been driven by curiosity and a desire to build minimalistic
                 solutions with core functionality. I specialize in creating scalable, fast and mobile-first
                 web applications that deliver exceptional user experiences.
-              </p>
-              <p>
+              </AnimatedParagraph>
+              <AnimatedParagraph delay={0.8}>
                 Currently working at Sancta Maria Catholic College of Nursing Science as a IT Support Intern, providing comprehensive IT support services including system maintenance, troubleshooting technical issues, and ensuring optimal performance of college infrastructure.
-              </p>
+              </AnimatedParagraph>
             </div>
           </motion.div>
 
