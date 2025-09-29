@@ -6,7 +6,7 @@ import './About.css';
 const About = () => {
   const timelineData = [
     {
-      date: '2024 - Present',
+      date: '2025 - Present',
       title: 'IT Support Intern',
       company: 'Sancta Maria Catholic College of Nursing Science',
       location: 'Hybrid',
