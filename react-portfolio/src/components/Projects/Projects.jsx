@@ -15,6 +15,14 @@ const Projects = () => {
       liveUrl: 'https://fupre-sports-media-web.vercel.app/sports'
     },
     {
+      id: 4,
+      title: 'Swiftlogng',
+      description: 'An app that allows SIWES/IT students across Nigeria to fill their logbook using AI.',
+      image: '/assets/swiftlog.png',
+      tags: ['React', 'Next.js', 'AI', 'Tailwind CSS'],
+      liveUrl: 'https://swiftlogng.space/'
+    },
+    {
       id: 2,
       title: 'TicTacKoko',
       description: 'A modern take on the classic Tic-tac-toe game built with Flutter, featuring a clean UI and state management with Provider.',
