@@ -37,6 +37,14 @@ const ProjectsPage = () => {
       liveUrl: 'https://fupre-sports-media-web.vercel.app/sports',
       githubUrl: null // Add if available
     },
+     {
+      id: 5,
+      title: 'Swiftlogng',
+      description: 'An app that allows SIWES/IT students across Nigeria to fill their logbook using AI.',
+      image: '/assets/swiftlog.png',
+      tags: ['React', 'Next.js', 'AI', 'Tailwind CSS'],
+      liveUrl: 'https://swiftlogng.space/'
+    },
     {
       id: 2,
       title: 'TicTacKoko',
